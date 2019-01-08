@@ -96,3 +96,25 @@ Returns a copy of this `Duration` truncated to the specified unit.
         assertThat(Duration.ofHours(50).toDaysPart(), is(2L));
     }
     ```
+* `truncateTo`
+    ```
+    @Test(expected = UnsupportedTemporalTypeException.class)
+    public void truncatedTo_unsupportedTemporalTypeException() {
+        Duration.parse("P2DT3H4M").truncatedTo(ChronoUnit.CENTURIES);
+    }
+    
+    @Test
+    public void truncatedTo_hours() {
+        assertThat(Duration.parse("P2DT3H4M").truncatedTo(ChronoUnit.HOURS), is(Duration.parse("P2DT3H")));
+    }
+    
+    @Test
+    public void truncatedTo_days() {
+        assertThat(Duration.parse("P2DT3H4M").truncatedTo(ChronoUnit.DAYS), is(Duration.ofDays(2)));
+    }
+    
+    @Test
+    public void truncatedTo_halfDays() {
+        assertThat(Duration.ofHours(14).truncatedTo(ChronoUnit.HALF_DAYS), is(Duration.ofHours(12)));
+    }
+    ```
