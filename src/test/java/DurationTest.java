@@ -49,4 +49,29 @@ public class DurationTest {
     public void toSeconds_lessThanSecond() {
         assertThat(Duration.ofMillis(100).toSeconds(), is(0L));
     }
+
+    @Test
+    public void toDaysPart_zero() {
+        assertThat(Duration.ofSeconds(0).toDaysPart(), is(0L));
+    }
+
+    @Test
+    public void toDaysPart_positive() {
+        assertThat(Duration.ofDays(5).toDaysPart(), is(5L));
+    }
+
+    @Test
+    public void toDaysPart_negative() {
+        assertThat(Duration.ofDays(-3).toDaysPart(), is(-3L));
+    }
+
+    @Test
+    public void toDaysPart_lessThanDay() {
+        assertThat(Duration.ofHours(23).toDaysPart(), is(0L));
+    }
+
+    @Test
+    public void toDaysPart_round() {
+        assertThat(Duration.ofHours(50).toDaysPart(), is(2L));
+    }
 }
