@@ -2,6 +2,9 @@
 _Reference_: https://docs.oracle.com/javase/9/docs/api/java/time/Duration.html
 
 # preview
+For basics of `Duration` API please refer my other github project:
+https://github.com/mtumilowicz/java8-datetime-duration-vs-period
+
 * `long dividedBy(Duration divisor)` -
 Returns number of whole times a specified `Duration` 
 occurs within this `Duration`.
