@@ -11,7 +11,13 @@ occurs within this `Duration`.
     numeric overflow occurs
 * `long toSeconds()` -
 Gets the number of seconds in this duration.
+    * positive, negative or zero
 * `long toDaysPart()` -
 Extracts the number of days in the duration. Similar methods
 for: hours, minutes, second, millis and nanos.
-* `Duration truncatedTo(TemporalUnit unit)`
+    * positive, negative or zero
+* `Duration truncatedTo(TemporalUnit unit)` -
+Returns a copy of this `Duration` truncated to the specified unit.
+    * `DateTimeException` if the unit is invalid for truncation
+    * `UnsupportedTemporalTypeException` if the unit is not 
+    supported
