@@ -47,3 +47,26 @@ Returns a copy of this `Duration` truncated to the specified unit.
         assertThat(Duration.ofDays(10).dividedBy(Duration.ofDays(3)), is(3L));
     }
     ```
+* `toSeconds`
+    ```
+    @Test
+    public void toSeconds_zero() {
+        assertThat(Duration.ofSeconds(0).toSeconds(), is(0L));
+    }
+    
+    @Test
+    public void toSeconds_positive() {
+        assertThat(Duration.ofSeconds(5).toSeconds(), is(5L));
+    }
+    
+    @Test
+    public void toSeconds_negative() {
+        assertThat(Duration.ofSeconds(-3).toSeconds(), is(-3L));
+    }
+    
+    @Test
+    public void toSeconds_lessThanSecond() {
+        assertThat(Duration.ofMillis(100).toSeconds(), is(0L));
+    }
+    ```
+* 
