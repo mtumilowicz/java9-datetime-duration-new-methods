@@ -18,6 +18,32 @@ for: hours, minutes, second, millis and nanos.
     * positive, negative or zero
 * `Duration truncatedTo(TemporalUnit unit)` -
 Returns a copy of this `Duration` truncated to the specified unit.
+    * Truncating the duration returns a copy of the original with conceptual fields 
+    smaller than the specified unit set to zero.
     * `DateTimeException` if the unit is invalid for truncation
     * `UnsupportedTemporalTypeException` if the unit is not 
     supported
+
+# tests
+* `dividedBy`
+    ```
+    @Test(expected = ArithmeticException.class)
+    public void dividedBy_zero() {
+        Duration.ofDays(10).dividedBy(Duration.ZERO);
+    }
+
+    @Test
+    public void dividedBy_negative() {
+        assertThat(Duration.ofDays(10).dividedBy(Duration.ofDays(-1)), is(-10L));
+    }
+
+    @Test
+    public void dividedBy_positive() {
+        assertThat(Duration.ofDays(10).dividedBy(Duration.ofDays(1)), is(10L));
+    }
+    
+    @Test
+    public void dividedBy_round() {
+        assertThat(Duration.ofDays(10).dividedBy(Duration.ofDays(3)), is(3L));
+    }
+    ```
