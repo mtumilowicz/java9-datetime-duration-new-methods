@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/mtumilowicz/java9-datetime-duration-new-methods.svg?branch=master)](https://travis-ci.com/mtumilowicz/java9-datetime-duration-new-methods)
+
 # java9-duration-new-methods
 _Reference_: https://docs.oracle.com/javase/9/docs/api/java/time/Duration.html
 
